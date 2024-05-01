@@ -7,4 +7,5 @@ public class Fornecedor : Entity
     public TipoFornecedor TipoFornecedor { get; set; }
     public Endereco? Endereco { get; set; }
     public bool Ativo { get; set; }
+    public IEnumerable<Produto> Produtos { get; set; }
 }
