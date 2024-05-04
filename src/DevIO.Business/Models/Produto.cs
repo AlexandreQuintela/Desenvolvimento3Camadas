@@ -7,4 +7,7 @@ public class Produto : Entity
     public decimal Valor { get; set; }
     public DateTime DataCadastro { get; set; }
     public bool Ativo { get; set; }
+
+    // Relação EF
+    public Fornecedor Fornecedor { get; set; }
 }
