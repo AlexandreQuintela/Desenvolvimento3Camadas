@@ -17,6 +17,6 @@ public class ProdutoMapping : IEntityTypeConfiguration<Produto>
 
         builder.Property(x => x.Descricao)
             .IsRequired()
-            .HasColumnName("varchar(100)");
+            .HasColumnName("varchar(1000)");
     }
 }
