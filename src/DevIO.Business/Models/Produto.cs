@@ -10,4 +10,6 @@ public class Produto : Entity
 
     // Relação EF
     public Fornecedor Fornecedor { get; set; }
+
+    public Guid FornecedorId { get; set; }
 }
