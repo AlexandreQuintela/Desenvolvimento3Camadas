@@ -13,11 +13,11 @@ public class FornecedorMapping : IEntityTypeConfiguration<Fornecedor>
 
         builder.Property(f => f.Nome)
             .IsRequired()
-            .HasColumnName("varchar(200)");
+            .HasColumnType("varchar(200)");
 
         builder.Property(f => f.Documento)
             .IsRequired()
-            .HasColumnName("varchar(14)");
+            .HasColumnType("varchar(14)");
 
         // 1:1 Fornecedor -> Endereço
         builder.HasOne(f => f.Endereco)
