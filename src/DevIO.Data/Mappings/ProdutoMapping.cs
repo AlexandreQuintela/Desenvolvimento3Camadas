@@ -13,10 +13,10 @@ public class ProdutoMapping : IEntityTypeConfiguration<Produto>
 
         builder.Property(x => x.Nome)
             .IsRequired()
-            .HasColumnName("varchar(200)");
+            .HasColumnType("varchar(200)");
 
         builder.Property(x => x.Descricao)
             .IsRequired()
-            .HasColumnName("varchar(1000)");
+            .HasColumnType("varchar(1000)");
     }
 }
