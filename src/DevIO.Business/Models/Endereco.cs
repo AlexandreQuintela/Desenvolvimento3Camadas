@@ -12,4 +12,5 @@ public class Endereco : Entity
 
     //Relaçao do EF
     public Fornecedor Fornecedor { get; set; }
+    public Guid FornecedorID { get; set; }
 }
