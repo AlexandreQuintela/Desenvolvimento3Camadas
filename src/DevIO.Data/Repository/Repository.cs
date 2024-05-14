@@ -19,7 +19,7 @@ public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity :
 
     public virtual async Task<TEntity> ObterPorId(Guid id)
     {
-        return await _DbSet.FirstAsync(Id);
+        return await _DbSet.FindAsync(id);
     }
 
     public virtual async Task<List<TEntity>> ObterTodos()
