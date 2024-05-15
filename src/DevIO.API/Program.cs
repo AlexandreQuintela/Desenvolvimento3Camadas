@@ -12,6 +12,7 @@ builder.Services.AddDbContext<MeuDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); // Pelo assemblies ele vai procurar todos os profiles
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
