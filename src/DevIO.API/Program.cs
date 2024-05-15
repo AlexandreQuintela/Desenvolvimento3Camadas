@@ -1,3 +1,4 @@
+using DevIO.API.Configurations;
 using DevIO.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,9 @@ builder.Services.AddDbContext<MeuDbContext>(options =>
 });
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); // Pelo assemblies ele vai procurar todos os profiles
+
+builder.Services.ResolveDependencies();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
