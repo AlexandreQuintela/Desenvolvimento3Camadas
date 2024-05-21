@@ -3,6 +3,7 @@ using DevIO.API.ViewModels;
 using DevIO.Business.Interfaces;
 using DevIO.Business.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace DevIO.API.Controllers;
 
@@ -45,7 +46,7 @@ public class ProdutosController : MainController
 
         await _produtoService.Adicionar(_mapper.Map<Produto>(produtoViewModel));
 
-        return RespostaPadrao(produtoViewModel);
+        return RespostaPadrao(HttpStatusCode.Created, produtoViewModel);
     }
 
     [HttpPut("{id:guid}")]
@@ -54,7 +55,7 @@ public class ProdutosController : MainController
         if (id != produtoViewModel.Id)
         {
             NotificarErro("Os Id´s informados do produto não são iguais.");
-            return RespostaPadrao();
+            return RespostaPadrao(HttpStatusCode.NoContent);
         }
 
         if (!ModelState.IsValid) return RespostaPadrao(ModelState);
@@ -69,7 +70,7 @@ public class ProdutosController : MainController
 
         await _produtoService.Adicionar(_mapper.Map<Produto>(produtoAtualizacao));
 
-        return RespostaPadrao();
+        return RespostaPadrao(HttpStatusCode.NoContent);
     }
 
     [HttpDelete("{id:guid}")]
@@ -81,7 +82,7 @@ public class ProdutosController : MainController
 
         await _produtoService.Remover(id);
 
-        return RespostaPadrao();
+        return RespostaPadrao(HttpStatusCode.NoContent);
     }
 
     private async Task<ProdutoViewModel> ObterProduto(Guid id)

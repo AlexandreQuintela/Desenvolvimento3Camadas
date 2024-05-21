@@ -3,6 +3,7 @@ using DevIO.API.ViewModels;
 using DevIO.Business.Interfaces;
 using DevIO.Business.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace DevIO.API.Controllers;
 
@@ -45,7 +46,7 @@ public class FornecedoresController : MainController
 
         await _fornecedorService.Adicionar(_mapper.Map<Fornecedor>(fornecedorViewModel));
 
-        return RespostaPadrao(fornecedorViewModel);
+        return RespostaPadrao(HttpStatusCode.Created, fornecedorViewModel);
     }
 
     [HttpPut("{id:guid}")]
@@ -54,14 +55,14 @@ public class FornecedoresController : MainController
         if (id != fornecedorViewModel.Id)
         {
             NotificarErro("Os Id´s infornados do fornecedor são diferentes");
-            return RespostaPadrao();
+            return RespostaPadrao(HttpStatusCode.NoContent);
         }
 
         if (!ModelState.IsValid) return RespostaPadrao(ModelState);
 
         await _fornecedorService.Atualizar(_mapper.Map<Fornecedor>(fornecedorViewModel));
 
-        return RespostaPadrao();
+        return RespostaPadrao(HttpStatusCode.NoContent);
     }
 
     [HttpDelete("{id:guid}")]
@@ -69,7 +70,7 @@ public class FornecedoresController : MainController
     {
         await _fornecedorService.Remover(id);
 
-        return RespostaPadrao();
+        return RespostaPadrao(HttpStatusCode.NoContent);
     }
 
     private async Task<FornecedorViewModel> ObterFornecedorProdutoEndereco(Guid id)
