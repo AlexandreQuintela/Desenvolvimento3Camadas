@@ -30,4 +30,8 @@ public abstract class MainController : ControllerBase
         return RespostaPadrao();
     }
 
+    protected void NotificarErro(string mensagem)
+    {
+
+    }
 }
