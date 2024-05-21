@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DevIO.Business.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace DevIO.API.Controllers;
@@ -6,6 +7,13 @@ namespace DevIO.API.Controllers;
 [ApiController]
 public abstract class MainController : ControllerBase
 {
+    private readonly INotificador _notificador;
+
+    protected MainController(INotificador notificador)
+    {
+        _notificador = notificador;
+    }
+
     protected bool OperacaoValida()
     {
         return true;

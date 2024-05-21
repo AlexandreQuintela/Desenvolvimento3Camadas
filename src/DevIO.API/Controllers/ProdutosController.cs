@@ -12,7 +12,10 @@ public class ProdutosController : MainController
     private readonly IProdutoRepository _produtoRepository;
     private readonly IProdutoService _produtoService;
     private readonly IMapper _mapper;
-    public ProdutosController(IProdutoRepository produtoRepository, IProdutoService produtoService, IMapper mapper)
+    public ProdutosController(IProdutoRepository produtoRepository,
+                                IProdutoService produtoService,
+                                IMapper mapper,
+                                INotificador notificador) : base(notificador)
     {
         _produtoRepository = produtoRepository;
         _produtoService = produtoService;

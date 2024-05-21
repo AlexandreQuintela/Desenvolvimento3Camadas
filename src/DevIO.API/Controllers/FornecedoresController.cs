@@ -13,7 +13,10 @@ public class FornecedoresController : MainController
     private readonly IFornecedorService _fornecedorService;
     private readonly IMapper _mapper;
 
-    public FornecedoresController(IFornecedorRepository fornecedorRepository, IFornecedorService fornecedorService, IMapper mapper)
+    public FornecedoresController(IFornecedorRepository fornecedorRepository,
+                                    IFornecedorService fornecedorService,
+                                    IMapper mapper,
+                                    INotificador notificador) : base(notificador)
     {
         _fornecedorRepository = fornecedorRepository;
         _fornecedorService = fornecedorService;
