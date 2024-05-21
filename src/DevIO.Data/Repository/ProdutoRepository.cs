@@ -16,7 +16,13 @@ public class ProdutoRepository : Repository<Produto>, IProdutoRepository
         return await _Db.Produtos
                         .AsNoTracking()
                             .Include(p => p.Fornecedor)
+                            .Include(c => c.Categoria)
                             .FirstOrDefaultAsync(p => p.Id == id);
+    }
+
+    public async Task<IEnumerable<Produto>> ObterProdutosPorCategoria(Guid categoriaId)
+    {
+        return await Buscar(c => c.CategoriaId == categoriaId);
     }
 
     public async Task<IEnumerable<Produto>> ObterProdutosFornecedores()
@@ -24,6 +30,7 @@ public class ProdutoRepository : Repository<Produto>, IProdutoRepository
         return await _Db.Produtos
                 .AsNoTracking()
                     .Include(p => p.Fornecedor)
+                    .Include(c => c.Categoria)
                     .OrderBy(p => p.Nome)
                     .ToListAsync();
     }
