@@ -1,6 +1,8 @@
 ﻿using DevIO.Business.Interfaces;
+using DevIO.Business.Notificacoes;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Net;
 
 namespace DevIO.API.Controllers;
 
@@ -16,30 +18,41 @@ public abstract class MainController : ControllerBase
 
     protected bool OperacaoValida()
     {
-        return true;
+        return !_notificador.TemNotificacoes();
     }
 
-    protected ActionResult RespostaPadrao(object result = null)
+    protected ActionResult RespostaPadrao(HttpStatusCode StatusCode = HttpStatusCode.OK, object result = null)
     {
         return OperacaoValida()
             ? new ObjectResult(result)
+            {
+                StatusCode = Convert.ToInt32(StatusCode)
+            }
             : (ActionResult)BadRequest(new
             {
-                // Todo: Coleção erros
+                erros = _notificador.ObterNotificacoes().Select(e => e.Mensagem)
             });
     }
 
     protected ActionResult RespostaPadrao(ModelStateDictionary modelState)
     {
-        if (!modelState.IsValid)
-        {
-            // Todo: Notifica Erros
-        }
+        if (!modelState.IsValid) NotificarErroModelInvalida(modelState);
+
         return RespostaPadrao();
+    }
+
+    protected void NotificarErroModelInvalida(ModelStateDictionary modelState)
+    {
+        var erros = modelState.Values.SelectMany(e => e.Errors);
+        foreach (var erro in erros)
+        {
+            var mensagemErro = erro.Exception == null ? erro.ErrorMessage : erro.Exception.Message;
+            NotificarErro(mensagemErro);
+        }
     }
 
     protected void NotificarErro(string mensagem)
     {
-
+        _notificador.Handle(new Notificacao(mensagem));
     }
 }
