@@ -9,7 +9,10 @@ public class Produto : Entity
     public bool Ativo { get; set; }
 
     // Relação EF
-    public Fornecedor Fornecedor { get; set; }
+    public Fornecedor Fornecedor { get; set; } = null!;
 
     public Guid FornecedorId { get; set; }
+
+    public Categoria Categoria { get; set; } = null!;
+    public Guid CategoriaId { get; set; }
 }
