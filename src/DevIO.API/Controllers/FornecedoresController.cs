@@ -66,7 +66,7 @@ public class FornecedoresController : MainController
     }
 
     [HttpDelete("{id:guid}")]
-    public async Task<ActionResult<FornecedorViewModel>> Excuir(Guid id)
+    public async Task<ActionResult<FornecedorViewModel>> Excluir(Guid id)
     {
         await _fornecedorService.Remover(id);
 

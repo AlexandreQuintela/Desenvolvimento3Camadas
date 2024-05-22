@@ -74,7 +74,7 @@ public class ProdutosController : MainController
     }
 
     [HttpDelete("{id:guid}")]
-    public async Task<ActionResult<ProdutoViewModel>> Excuir(Guid id)
+    public async Task<ActionResult<ProdutoViewModel>> Excluir(Guid id)
     {
         var produto = await ObterProduto(id);
 
