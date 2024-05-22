@@ -14,7 +14,7 @@ public class CategoriaMapping : IEntityTypeConfiguration<Categoria>
 
         builder.Property(x => x.Nome)
             .IsRequired()
-            .HasColumnType("varchar(200)");
+            .HasColumnType("varchar(60)");
 
         // 1:N Categoria -> Produtos
         builder.HasMany(f => f.Produtos)
