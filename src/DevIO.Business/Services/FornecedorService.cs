@@ -1,8 +1,4 @@
-﻿using DevIO.Business.Interfaces;
-using DevIO.Business.Models;
-using DevIO.Business.Models.Validations;
-
-namespace DevIO.Business.Services;
+﻿namespace DevIO.Business.Services;
 
 public class FornecedorService : BaseService, IFornecedorService
 {

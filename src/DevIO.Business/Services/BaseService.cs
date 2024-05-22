@@ -1,10 +1,4 @@
-﻿using DevIO.Business.Interfaces;
-using DevIO.Business.Models;
-using DevIO.Business.Notificacoes;
-using FluentValidation;
-using FluentValidation.Results;
-
-namespace DevIO.Business.Services;
+﻿namespace DevIO.Business.Services;
 
 public abstract class BaseService
 {

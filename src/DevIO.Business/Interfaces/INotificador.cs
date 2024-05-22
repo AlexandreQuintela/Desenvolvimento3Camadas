@@ -1,6 +1,4 @@
-﻿using DevIO.Business.Notificacoes;
-
-namespace DevIO.Business.Interfaces;
+﻿namespace DevIO.Business.Interfaces;
 
 public interface INotificador
 {

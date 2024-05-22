@@ -1,6 +1,4 @@
-﻿using DevIO.Business.Models;
-
-namespace DevIO.Business.Interfaces;
+﻿namespace DevIO.Business.Interfaces;
 
 public interface IProdutoRepository : IRepository<Produto>
 {
