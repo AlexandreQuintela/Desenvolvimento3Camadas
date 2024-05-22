@@ -47,6 +47,7 @@ public abstract class MainController : ControllerBase
 
     protected void NotificarErro(string mensagem)
     {
+        Log.Error($"Notificação de erro: ({mensagem})");
         _notificador.Handle(new Notificacao(mensagem));
     }
 }
