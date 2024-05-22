@@ -54,7 +54,7 @@ public class FornecedoresController : MainController
     {
         if (id != fornecedorViewModel.Id)
         {
-            NotificarErro("Os Id´s infornados do fornecedor são diferentes");
+            NotificarErro("Os Id´s informados do fornecedor são diferentes");
             return RespostaPadrao(HttpStatusCode.NoContent);
         }
 
