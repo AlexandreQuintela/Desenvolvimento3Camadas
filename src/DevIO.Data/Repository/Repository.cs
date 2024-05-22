@@ -1,10 +1,4 @@
-﻿using DevIO.Business.Interfaces;
-using DevIO.Business.Models;
-using DevIO.Data.Context;
-using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
-
-namespace DevIO.Data.Repository;
+﻿namespace DevIO.Data.Repository;
 
 public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity, new()
 {

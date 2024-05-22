@@ -1,9 +1,4 @@
-﻿using DevIO.Business.Interfaces;
-using DevIO.Business.Models;
-using DevIO.Data.Context;
-using Microsoft.EntityFrameworkCore;
-
-namespace DevIO.Data.Repository;
+﻿namespace DevIO.Data.Repository;
 
 public class FornecedorRepository : Repository<Fornecedor>, IFornecedorRepository
 {

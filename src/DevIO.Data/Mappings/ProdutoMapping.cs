@@ -1,7 +1,4 @@
-﻿using DevIO.Business.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace DevIO.Data.Mappings;
+﻿namespace DevIO.Data.Mappings;
 
 public class ProdutoMapping : IEntityTypeConfiguration<Produto>
 {
