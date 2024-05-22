@@ -15,5 +15,6 @@ public class AutomapperConfig : Profile
             .ForMember(
             dest => dest.NomeFornecedor,
             opt => opt.MapFrom(src => src.Fornecedor.Nome));
+        CreateMap<Categoria, CategoriaViewModel>().ReverseMap();
     }
 }
