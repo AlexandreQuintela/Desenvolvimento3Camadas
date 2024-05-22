@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace DevIO.API.ViewModels
+﻿namespace DevIO.API.ViewModels
 {
     public class CategoriaViewModel
     {

@@ -1,7 +1,3 @@
-using DevIO.API.Configurations;
-using DevIO.Data.Context;
-using Microsoft.EntityFrameworkCore;
-
 var builder = WebApplication.CreateBuilder(args);
 
 //builder.Services.AddControllers();

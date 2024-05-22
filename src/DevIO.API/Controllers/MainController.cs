@@ -1,10 +1,4 @@
-﻿using DevIO.Business.Interfaces;
-using DevIO.Business.Notificacoes;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Net;
-
-namespace DevIO.API.Controllers;
+﻿namespace DevIO.API.Controllers;
 
 [ApiController]
 public abstract class MainController : ControllerBase

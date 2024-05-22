@@ -1,10 +1,4 @@
-﻿using DevIO.Business.Interfaces;
-using DevIO.Business.Notificacoes;
-using DevIO.Business.Services;
-using DevIO.Data.Context;
-using DevIO.Data.Repository;
-
-namespace DevIO.API.Configurations;
+﻿namespace DevIO.API.Configurations;
 
 public static class DependencyInjectionConfig
 {
