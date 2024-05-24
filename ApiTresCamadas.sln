@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevIO.Business", "src\DevIO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevIO.API", "src\DevIO.API\DevIO.API.csproj", "{C5EB5B15-E242-452F-ABCD-2D41ACF4848C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevIO.Blazor", "src\DevIO.Blazor\DevIO.Blazor\DevIO.Blazor.csproj", "{096DBD9F-3818-4417-86A0-F6D419E13845}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevIO.Blazor", "src\DevIO.Blazor\DevIO.Blazor\DevIO.Blazor.csproj", "{096DBD9F-3818-4417-86A0-F6D419E13845}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevIO.Blazor.Client", "src\DevIO.Blazor\DevIO.Blazor.Client\DevIO.Blazor.Client.csproj", "{5223B516-9D17-4DFC-B700-8CF66DD03267}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevIO.Blazor.Client", "src\DevIO.Blazor\DevIO.Blazor.Client\DevIO.Blazor.Client.csproj", "{5223B516-9D17-4DFC-B700-8CF66DD03267}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

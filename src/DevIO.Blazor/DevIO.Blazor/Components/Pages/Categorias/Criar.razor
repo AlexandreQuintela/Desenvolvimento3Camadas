@@ -1,0 +1,15 @@
+﻿@page "/Categorias/Criar"
+@using DevIO.Business.Models
+
+<h3>Criação de Categoria</h3>
+<EditForm Model="@Model">
+    <InputText @bind-Value="Model.Nome"/>
+</EditForm>
+@code {
+    public Categoria Model { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        Model.Nome = "Minha incrível categoria";
+    }
+}
