@@ -1,12 +1,16 @@
-using DevIO.Blazor.Client.Pages;
 using DevIO.Blazor.Components;
 using DevIO.Blazor.Components.Account;
+using DevIO.Blazor.Configurations;
 using DevIO.Blazor.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+SerilogExtension.AddSerilogApi(builder.Configuration);
+builder.Host.UseSerilog(Log.Logger);
+Log.Information("Iniciando Blazor");
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
