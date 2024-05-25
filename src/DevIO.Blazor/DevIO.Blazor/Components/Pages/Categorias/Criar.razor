@@ -1,15 +1,45 @@
-﻿@page "/Categorias/Criar"
-@using DevIO.Business.Models
+﻿@page "/categorias/criar"
+@using DevIO.Business.Models.Validations
+@using DevIO.Data.Context
+@inject MeuDbContext Context
+@inject CategoriaValidation Validator
+@rendermode InteractiveServer
 
 <h3>Criação de Categoria</h3>
-<EditForm Model="@Model">
-    <InputText @bind-Value="Model.Nome"/>
+<EditForm Model="@Model" OnValidSubmit="OnValidSubmitAsync">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+
+    <div class="mb3">
+        <label class="form-label">Nome da categoria</label>
+        <InputText @bind-Value="Model.Nome" class="form-control"/>
+        <ValidationMessage For="@(()=>Model.Nome)"/>
+        @if (Errors.ContainsKey("Nome"))
+        {
+            <span class="text-danger">@Errors["Nome"]</span>
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">Gravar</button>
+    <a href="/categorias">Cancelar</a>
 </EditForm>
+
 @code {
     public Categoria Model { get; set; } = new();
+    private readonly Dictionary<string, string> Errors = new Dictionary<string, string>();
+    private bool isFormValidated = false;
 
     protected override void OnInitialized()
     {
-        Model.Nome = "Minha incrível categoria";
+    }
+
+    public async Task OnValidSubmitAsync()
+    {
+        var validationResult = Validator.Validate(Model);
+        foreach (var error in validationResult.Errors)
+        {
+            Errors[error.PropertyName] = error.ErrorMessage;
+        }
+        await Context.Categorias.AddAsync(Model);
+        await Context.SaveChangesAsync();
     }
 }

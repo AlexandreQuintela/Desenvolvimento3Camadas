@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\DevIO.Business\DevIO.Business.csproj" />
+    <ProjectReference Include="..\..\DevIO.Data\DevIO.Data.csproj" />
     <ProjectReference Include="..\DevIO.Blazor.Client\DevIO.Blazor.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.5" />
